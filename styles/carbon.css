@@ -1,0 +1,805 @@
+@font-face {
+  font-family: 'Atiba';
+  font-style: normal;
+  src: url('../assets/Atiba.ttf') format('woff2');
+}
+
+.carboncompact.dnd5e .window-content {
+  background: url("../assets/light.jpg") repeat;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es {
+  --accent-text: #041723;
+  --color: #191813;
+  --groove-gray:#af274c;
+  --highlight: #af274c;
+  --light-gray: #af274c;
+  min-height: 500px;
+  min-width: 800px;
+  /* these lists now use tags and thus should be styled differenly */
+  /* Support Better Rolls / Minor QOL buttons on item summaries */
+  /* complicated flex layout to allow tab areas to be scrollable */
+  /* instrumental: https://stackoverflow.com/questions/52487743/prevent-flex-item-from-exceeding-parent-height-and-make-scroll-bar-work */
+  /* Scrollbars */
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+  /* copied from dnd5e, but without the nesting and element specific prefixes and removed some default values */
+}
+.dark-mode .carboncompact.dnd5e.sheet.actor.character.cb5es {
+  --accent-text: #a0a0a0;
+  --color: #b5b5b5;
+  --groove-gray: #5e5e5e;
+  --highlight: #3f88e6;
+  --light-gray: #5e5e5e;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ability-scores .ability {
+  height: auto;
+  background-color: #dfdfdf;
+  font-family: "Atiba";
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ability-scores .ability:last-child {
+  margin-bottom: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ability-scores .ability .ability-modifiers {
+  height: auto;
+  margin: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ability-scores .ability .ability-modifiers .ability-proficiency {
+  display: flex;
+  line-height: normal;
+  place-items: center;
+  place-content: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ability-score-row {
+  border-radius: 0;
+  border: 0;
+  display: flex;
+  flex: 0 0 auto;
+  height: auto;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ability-score-row > :not(:last-child) {
+  margin-right: 5px;
+  background-color: #dfdfdf;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ability-score-row > li {
+  border-radius: 4px;
+  flex: 1 0 80px;
+  border: 2px solid var(--groove-gray);
+  background-color: #dfdfdf;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .action-range {
+  flex-direction: column;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .actions .item-name {
+  flex: 2;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .actions .inventory-header .item-detail {
+  flex: 1;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attributes {
+  flex: 0 0 auto;
+  height: auto;
+  display: grid;
+  max-height: 30%;
+  overflow: overlay;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-gap: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attributes .attribute {
+  margin: 0;
+  width: 100%;
+  background-color: #dfdfdf;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attribute {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attribute .attribute-value {
+  font-size: 24px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #041723;
+  font-family: "Atiba";
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attribute-footer {
+  display: flex;
+  align-items: center;
+  min-height: 18px;
+  justify-content: space-around;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attribute-footer input {
+  flex: 1;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .resource .attribute-value input {
+  flex: 0 auto;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header {
+  border-bottom: 0;
+  flex: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header > :not(:last-child) {
+  margin-right: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header > section > :not(:last-child) {
+  margin-bottom: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header .profile {
+  border-right: none;
+  flex: 0 0 100px;
+  height: auto;
+  max-height: 100%;
+  max-width: 100px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header h1 {
+  flex: 0 auto;
+  height: auto;
+  padding: 0;
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header h1 input {
+  font-size: inherit;
+  height: 100%;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header .health {
+  flex: 2;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header .death-save-attribute {
+  flex: 2;
+  background-color: rgba(var(--highlight), 0.1);
+  border-color: var(--highlight);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header .death-save-attribute .attribute-value > :not(:last-child) {
+  margin-right: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header .death-save-attribute .attribute-value > * {
+  flex: 2.1;
+  padding: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-header .death-save-attribute .attribute-value > :last-child {
+  border-left: 2px solid var(--groove-gray);
+  padding-left: 5px;
+  flex: 1 0 15%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ac {
+  flex: 0 0 70px;
+  height: 80px;
+  min-width: 70px;
+  padding: 12px;
+  position: relative;
+  text-align: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ac h4 {
+  color: var(--accent-text);
+  font-size: 10px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ac-symbol {
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ac-symbol > svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .ac-symbol > svg path {
+  fill: var(--light-gray);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-actions {
+  display: flex;
+  margin-top: auto;
+  justify-content: flex-start;
+  font-size: 12px;
+  font-family: "Signika", sans-serif;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-actions > :not(:last-child) {
+  margin-right: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-actions .rest {
+  align-items: center;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  display: inline-flex;
+  padding: 0.1em 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-actions .rest:hover, .carboncompact.dnd5e.sheet.actor.character.cb5es .header-actions .rest:focus {
+  border-color: var(--highlight);
+  background-color: rgba(var(--highlight), 0.1);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-actions .rest i {
+  margin-left: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-details > :not(:last-child) {
+  margin-bottom: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp {
+  flex: 0 auto;
+  font-family: "Signika", sans-serif;
+  font-size: 10px;
+  height: auto;
+  max-width: 27em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .xpbar {
+  border-radius: 0;
+  border: 0;
+  flex: 0 0 auto;
+  height: 2px;
+  position: relative;
+  margin-bottom: 0;
+  background-color: var(--light-gray);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .xpbar .bar {
+  background: var(--highlight);
+  border: 0;
+  height: 2px;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .experience {
+  flex: auto;
+  justify-items: center;
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-size: inherit;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .experience input {
+  flex: 1;
+  letter-spacing: inherit;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .experience .max {
+  flex: 1;
+  text-align: left;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .experience .left-label {
+  text-align: left;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .experience .left-label,
+.carboncompact.dnd5e.sheet.actor.character.cb5es .header-exp .experience .right-label {
+  flex: 0 0 max-content;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .health-armor > :not(:last-child) {
+  margin-right: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inline-summary {
+  align-items: center;
+  color: var(--accent-text);
+  display: inline-flex;
+  flex: 0 auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inline-summary > :not(:last-child) {
+  margin-right: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inline-summary li {
+  position: relative;
+  width: max-content;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inline-summary li .hidden {
+  border: 1px solid transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inline-summary li input {
+  bottom: 0;
+  color: inherit;
+  font-weight: inherit;
+  height: 100%;
+  left: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inline-summary li .non-editable {
+  border: 1px solid transparent;
+  display: block;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory hr {
+  width: 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-header {
+  display: flex;
+  flex: 0 auto;
+  font-size: 12px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-header h3 {
+  margin-bottom: 0;
+  font-family: "Atiba";
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: auto;
+  flex: 1 0 auto;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency .currency-inputs {
+  align-items: center;
+  display: flex;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency .currency-inputs > :not(:last-child) {
+  margin-right: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency .currency-inputs > * {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency .currency-inputs > * > * {
+  margin-left: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency label {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency .dynamic-input {
+  position: relative;
+  width: max-content;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency .dynamic-input .hidden {
+  border: 1px solid transparent;
+  display: block;
+  min-width: 20px;
+  opacity: 0;
+  padding: 0.1em 0.2em;
+  pointer-events: none;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .currency .dynamic-input input {
+  bottom: 0;
+  color: inherit;
+  font-weight: normal;
+  height: 100%;
+  left: 0;
+  padding: 0.1em 0.2em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .encumberance .encumbered {
+  font-weight: 700;
+  color: var(--highlight);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 25%;
+  margin-top: 0;
+  min-width: calc(80px + 80px + 0.25em);
+  padding-right: 10px;
+  border-right: 2px solid var(--groove-gray);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-sidebar > :not(:last-child) {
+  margin-bottom: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ul.skills-list {
+  border: 0;
+  flex: 0;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ul.skills-list li.skill {
+  align-items: center;
+  height: auto;
+  line-height: normal;
+  padding: 0;
+  color: #041723;
+  font-family: "Atiba";
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ul.skills-list li.skill .skill-proficiency {
+  line-height: normal;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ul.skills-list li.skill .skill-ability {
+  font-size: 0.8em;
+  letter-spacing: 0.01em;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .traits label {
+  flex: 1;
+  font-size: 12px;
+  margin-right: auto;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .traits em {
+  flex: 1 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .fancy-value {
+  align-items: center;
+  color: var(--accent-text);
+  display: flex;
+  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .fancy-value .fas {
+  margin: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .fancy-value h4 {
+  border: 1px solid var(--light-gray);
+  border-radius: 4px 0 0 4px;
+  border-right: 0;
+  flex: 1;
+  font-family: "Atiba";
+  font-weight: inherit;
+  margin: 0;
+  padding: 0.1em 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .fancy-value > div {
+  align-self: stretch;
+  border: 1px solid var(--light-gray);
+  border-radius: 50%;
+  display: flex;
+  flex: 0 0 1.8em;
+  height: 1.6em;
+  margin-left: calc(-1 * (0.4em + 1px));
+  padding: 0.2em 0.4em;
+  place-content: center;
+  place-items: center;
+  position: relative;
+  text-align: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .fancy-value > div > input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .fancy-value > div > input:hover + i {
+  text-shadow: 0 0 8px var(--highlight);
+  color: var(--color);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .fancy-value > div > input:checked + i {
+  color: var(--highlight);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .spellcasting-ability {
+  flex: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .spellcasting-ability > div {
+  flex: 1;
+  white-space: nowrap;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .spellcasting-ability label {
+  font-weight: 700;
+  color: var(--accent-text);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .spell-comps > :not(:last-child) {
+  margin-right: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-tab-area {
+  border-top: 2px solid var(--groove-gray);
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-navigation {
+  flex: 0 auto;
+  flex-wrap: nowrap;
+  font-family: inherit;
+  font-size: 14px;
+  overflow: overlay;
+  text-transform: uppercase;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-navigation > :not(:last-child) {
+  margin-right: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-navigation .item {
+  color: var(--accent-text);
+  flex: 0 auto;
+  height: auto;
+  line-height: normal;
+  margin: 0;
+  padding: 0 0.4em;
+  width: max-content;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-navigation .item:not(.active) {
+  border-bottom-color: transparent;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-navigation .item.active, .carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-navigation .item:hover {
+  text-shadow: none;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-navigation .item.active {
+  border-bottom-width: 2px;
+  color: inherit;
+  border-bottom-color: var(--highlight);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .filter-list {
+  line-height: normal;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .filter-list > :not(:last-child) {
+  margin-right: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .filter-item {
+  border-bottom: 1px solid var(--groove-gray);
+  display: flex;
+  align-content: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .tab > :not(:last-child) {
+  margin-bottom: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-filters {
+  justify-content: start;
+  flex: 0 auto;
+  margin: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list {
+  padding: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item > :not(.item-summary) {
+  min-height: 30px;
+  place-items: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item > :not(.item-summary):not(:first-child) {
+  font-size: 12px;
+  color: #7a7971;
+  text-align: center;
+  display: flex;
+  place-content: center;
+  line-height: normal;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item .item-image {
+  align-self: stretch;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item .spell-uses {
+  flex: 0 auto;
+  padding-right: 0.2em;
+  margin-left: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item .item-name {
+  max-height: unset;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item .item-name.feat-name-hack {
+  overflow: visible;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item .item-name h4 {
+  text-overflow: ellipsis;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .inventory-header {
+  font-family: "Atiba";
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--groove-gray);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .inventory-list .item-list:not(:last-of-type) {
+  margin-bottom: 1em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography > :not(:last-child) {
+  margin-right: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography h4 {
+  font-size: 1em;
+  font-weight: 700;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .note-entries > :not(:last-child) {
+  margin-bottom: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .left-notes {
+  flex: 2;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .right-notes {
+  flex: 3;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography article {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  padding: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography article h4 {
+  flex: 0 auto;
+  border-bottom: 2px solid var(--groove-gray);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography article .editor {
+  flex: 1 50px;
+  padding: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .big-bio {
+  flex: 1;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor h1,
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor h2,
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor h3 {
+  font-weight: 700;
+  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor p {
+  margin: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor p:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor h1 {
+  font-size: 2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor .tox {
+  height: 100% !important;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor .tox .tox-toolbar__group {
+  padding: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor .tox .tox-tbtn {
+  height: 2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor .tox .tox-tbtn:not(.tox-tbtn--select) {
+  width: 2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .biography .editor .tox .tox-sidebar-wrap {
+  min-height: 5em;
+  flex: 1 1 5em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .window-content {
+  box-sizing: border-box;
+  padding: 5px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .window-content * {
+  box-sizing: inherit;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .window-content > form > :not(:last-child) {
+  margin-bottom: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es input[type=text] {
+  font-weight: inherit;
+  color: #041723;
+  font-family: "Atiba";
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es input[type=text]:hover, .carboncompact.dnd5e.sheet.actor.character.cb5es input[type=text]:focus {
+  box-shadow: none;
+  border-color: var(--highlight);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es input[type=checkbox] {
+  width: 1em;
+  height: 1em;
+  flex-basis: 1em;
+  margin: 0;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es h4.box-title {
+  font-size: 16px;
+  color: #af274c;
+  font-family: "Atiba";
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-main-wrapper {
+  display: flex;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-main-wrapper > :not(:last-child) {
+  margin-right: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-main {
+  display: flex;
+  flex-direction: column;
+  flex: 3 75%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-main > :not(:last-child) {
+  margin-bottom: 10px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .tag {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  line-height: normal;
+  margin: 0;
+  flex: 0 1 auto;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .tag.active {
+  background: var(--highlight);
+  color: #041723;
+  font-family: "Atiba";
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .item-properties,
+.carboncompact.dnd5e.sheet.actor.character.cb5es .traits-list {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: normal;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .item-properties > :not(:last-child),
+.carboncompact.dnd5e.sheet.actor.character.cb5es .traits-list > :not(:last-child) {
+  margin-right: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .item-properties > .tag,
+.carboncompact.dnd5e.sheet.actor.character.cb5es .traits-list > .tag {
+  margin-bottom: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .item-properties .item-buttons {
+  display: flex;
+  font-size: 1em;
+  margin-bottom: 5px;
+  width: 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .item-properties .item-buttons > :not(:last-child) {
+  margin-right: 0.2em;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .item-properties .item-buttons .tag {
+  background-color: var(--light-gray);
+  font-size: inherit;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .item-properties .item-buttons button {
+  background: none;
+  border: 0;
+  font-size: inherit;
+  line-height: normal;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-sidebar {
+  overflow: overlay;
+  padding-right: 6px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-main-wrapper {
+  overflow: hidden;
+  flex: 0 100%;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-main {
+  overflow: hidden;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .sheet-tab-area {
+  flex: 1 1 1px;
+  /* makes this item grow, but not affect the parent's initial layout compuation */
+  overflow: hidden;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ::-webkit-scrollbar {
+  width: 4px;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ::-webkit-scrollbar-thumb {
+  background: var(--light-gray);
+  border-color: var(--light-gray);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es ::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight);
+  border-color: var(--highlight);
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attribute {
+  border: 2px solid var(--groove-gray);
+  border-radius: 4px;
+  text-align: center;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attribute-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.carboncompact.dnd5e.sheet.actor.character.cb5es .attribute-footer {
+  font-family: "Signika", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
