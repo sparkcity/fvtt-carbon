@@ -6,12 +6,12 @@
 
         <section class="header-details flexrow">
             <h1 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'DND5E.Name' }}"/>
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'CARBON.Name' }}"/>
             </h1>
 
             <aside class="header-exp flexcol">
                 <div class="charlevel">
-                    <label>{{ localize "DND5E.Level" }} {{data.details.level}}</label>
+                    <label>{{ localize "CARBON.Level" }} {{data.details.level}}</label>
                     <span class="levels">{{classLabels}}</span>
                 </div>
 
@@ -30,76 +30,83 @@
             {{!-- Character Summary --}}
             <ul class="summary flexrow">
                 <li>
-                    <input type="text" name="data.details.race" value="{{data.details.race}}" placeholder="{{ localize 'DND5E.Race' }}"/>
-                </li>
-                <li>
-                    <input type="text" name="data.details.background" value="{{data.details.background}}" placeholder="{{ localize 'DND5E.Background' }}"/>
-                </li>
-                <li>
-                    <input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder="{{ localize 'DND5E.Alignment' }}"/>
+                    <input type="text" name="data.details.origins" value="{{data.details.origins}}" placeholder="{{ localize 'CARBON.Origins' }}"/>
                 </li>
                 <li class="proficiency">
-                    <span>{{ localize "DND5E.Proficiency" }} {{numberFormat data.attributes.prof decimals=0 sign=true}}</span>
+                    <span>{{ localize "CARBON.Proficiency" }} {{numberFormat data.attributes.prof decimals=0 sign=true}}</span>
                 </li>
             </ul>
 
             {{!-- Header Attributes --}}
             <ul class="attributes flexrow">
                 <li class="attribute health">
-                    <h4 class="attribute-name box-title">{{ localize "DND5E.HitPoints" }}</h4>
+                    <h4 class="attribute-name box-title">{{ localize "CARBON.HitPoints" }}</h4>
                     <div class="attribute-value multiple">
                         <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}" placeholder="10" data-dtype="Number"/>
                         <span class="sep"> / </span>
                         <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}" placeholder="10" data-dtype="Number"/>
                     </div>
                     <footer class="attribute-footer">
-                        <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="+{{ localize 'DND5E.Temp' }}"
+                        <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="+{{ localize 'CARBON.Temp' }}"
                                value="{{data.attributes.hp.temp}}" data-dtype="Number"/>
-                        <input name="data.attributes.hp.tempmax" type="text" class="temphp" placeholder="+{{ localize 'DND5E.Max' }}"
+                        <input name="data.attributes.hp.tempmax" type="text" class="temphp" placeholder="+{{ localize 'CARBON.Max' }}"
                                value="{{data.attributes.hp.tempmax}}" data-dtype="Number"/>
                     </footer>
                 </li>
 
+                <li class="attribute health">
+                    <h4 class="attribute-name box-title">{{ localize "CARBON.BloodToxicity" }}</h4>
+                    <div class="attribute-value multiple">
+                        <input name="data.attributes.bloodtox.value" type="text" value="{{data.attributes.bloodtox.value}}" placeholder="0" data-dtype="Number"/>
+                    </div>
+                    <footer class="attribute-footer">
+                        <input name="data.attributes.bloodtox.lowlim" type="text" class="temphp" placeholder="{{ localize 'CARBON.BloodToxicityLower' }}"
+                               value="{{data.attributes.bloodtox.lowlim}}" data-dtype="Number"/>
+                        <input name="data.attributes.bloodtox.uplim" type="text" class="temphp" placeholder="{{ localize 'CARBON.BloodToxicityUpper' }}"
+                               value="{{data.attributes.bloodtox.uplim}}" data-dtype="Number"/>
+                    </footer>
+                </li>
+
                 <li class="attribute">
-                    <h4 class="attribute-name box-title">{{ localize "DND5E.HitDice" }}</h4>
+                    <h4 class="attribute-name box-title">{{ localize "CARBON.HitDice" }}</h4>
                     <div class="attribute-value multiple">
                         <label class="hit-dice">{{data.attributes.hd}} <span class="sep"> / </span> {{data.details.level}}</label>
                     </div>
                     <footer class="attribute-footer">
-                        <a class="rest short-rest">{{ localize "DND5E.RestS" }}</a>
-                        <a class="rest long-rest">{{ localize "DND5E.RestL" }}</a>
+                        <a class="rest short-rest">{{ localize "CARBON.RestS" }}</a>
+                        <a class="rest long-rest">{{ localize "CARBON.RestL" }}</a>
                     </footer>
                 </li>
 
                 <li class="attribute">
-                    <h4 class="attribute-name box-title">{{ localize "DND5E.ArmorClass" }}</h4>
+                    <h4 class="attribute-name box-title">{{ localize "CARBON.ArmorClass" }}</h4>
                     <div class="attribute-value">
                         <input name="data.attributes.ac.value" type="number" value="{{data.attributes.ac.value}}" placeholder="10"/>
                     </div>
                     <footer class="attribute-footer">
-                        <span class="spell-dc">{{localize "DND5E.SpellDC"}} {{data.attributes.spelldc}}</span>
+                        <span class="spell-dc">{{localize "CARBON.SpellDC"}} {{data.attributes.spelldc}}</span>
                     </footer>
                 </li>
 
                 <li class="attribute">
-                    <h4 class="attribute-name box-title">{{ localize "DND5E.Speed" }}</h4>
+                    <h4 class="attribute-name box-title">{{ localize "CARBON.Speed" }}</h4>
                     <div class="attribute-value">
                         <input name="data.attributes.speed.value" type="text"
                                value="{{data.attributes.speed.value}}" placeholder="0"/>
                     </div>
                     <footer class="attribute-footer">
                         <input type="text" class="speed" name="data.attributes.speed.special"
-                               value="{{data.attributes.speed.special}}" placeholder="{{ localize 'DND5E.SpeedSpecial' }}"/>
+                               value="{{data.attributes.speed.special}}" placeholder="{{ localize 'CARBON.SpeedSpecial' }}"/>
                     </footer>
                 </li>
 
                 <li class="attribute initiative">
-                    <h4 class="attribute-name box-title">{{ localize "DND5E.Initiative" }}</h4>
+                    <h4 class="attribute-name box-title">{{ localize "CARBON.Initiative" }}</h4>
                     <div class="attribute-value">
                         <span>{{numberFormat data.attributes.init.total decimals=0 sign=true}}</span>
                     </div>
                     <footer class="attribute-footer">
-                        <span>{{ localize "DND5E.Modifier" }}</span>
+                        <span>{{ localize "CARBON.Modifier" }}</span>
                         <input name="data.attributes.init.value" type="number" placeholder="0"
                                value="{{numberFormat data.attributes.init.value decimals=0 sign=true}}"/>
                     </footer>
@@ -110,11 +117,11 @@
 
     {{!-- NPC Sheet Navigation --}}
     <nav class="sheet-navigation tabs" data-group="primary">
-        <a class="item active" data-tab="attributes">{{ localize "DND5E.Attributes" }}</a>
-        <a class="item" data-tab="inventory">{{ localize "DND5E.Inventory" }}</a>
-        <a class="item" data-tab="features">{{ localize "DND5E.Features" }}</a>
-        <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
-        <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
+        <a class="item active" data-tab="attributes">{{ localize "CARBON.Attributes" }}</a>
+        <a class="item" data-tab="inventory">{{ localize "CARBON.Inventory" }}</a>
+        <a class="item" data-tab="features">{{ localize "CARBON.Features" }}</a>
+        <a class="item" data-tab="spellbook">{{ localize "CARBON.Spellbook" }}</a>
+        <a class="item" data-tab="biography">{{ localize "CARBON.Biography" }}</a>
     </nav>
 
     {{!-- NPC Sheet Body --}}
@@ -131,7 +138,7 @@
                     <div class="ability-modifiers flexrow">
                         <span class="ability-mod" title="Modifier">{{numberFormat ability.mod decimals=0 sign=true}}</span>
                         <input type="hidden" name="data.abilities.{{id}}.proficient" value="{{ability.proficient}}" data-dtype="Number"/>
-                        <a class="proficiency-toggle ability-proficiency" title="{{ localize 'DND5E.Proficiency' }}">{{{ability.icon}}}</a>
+                        <a class="proficiency-toggle ability-proficiency" title="{{ localize 'CARBON.Proficiency' }}">{{{ability.icon}}}</a>
                         <span class="ability-save" title="Saving Throw">{{numberFormat ability.save decimals=0 sign=true}}</span>
                     </div>
                 </li>
@@ -164,7 +171,7 @@
                         </h4>
                         <div class="attribute-value">
                             <label class="recharge checkbox">
-                                {{ localize "DND5E.AbbreviationSR" }} <input name="data.resources.{{res.name}}.sr" type="checkbox" {{checked res.sr}}/>
+                                {{ localize "CARBON.AbbreviationSR" }} <input name="data.resources.{{res.name}}.sr" type="checkbox" {{checked res.sr}}/>
                             </label>
 
                             <input name="data.resources.{{res.name}}.value" type="number" value="{{res.value}}" placeholder="0"/>
@@ -172,7 +179,7 @@
                             <input name="data.resources.{{res.name}}.max" type="number" value="{{res.max}}" placeholder="0"/>
 
                             <label class="recharge checkbox">
-                                {{ localize "DND5E.AbbreviationLR" }} <input name="data.resources.{{res.name}}.lr" type="checkbox" {{checked res.lr}}/>
+                                {{ localize "CARBON.AbbreviationLR" }} <input name="data.resources.{{res.name}}.lr" type="checkbox" {{checked res.lr}}/>
                             </label>
                         </div>
                     </li>
@@ -182,7 +189,7 @@
                 {{!-- Counters --}}
                 <div class="counters">
                     <div class="counter flexrow death-saves">
-                        <h4 class="death-save rollable">{{ localize "DND5E.DeathSave" }}</h4>
+                        <h4 class="death-save rollable">{{ localize "CARBON.DeathSave" }}</h4>
                         <div class="counter-value">
                             <i class="fas fa-check"></i>
                             <input name="data.attributes.death.success" type="number" placeholder="0"
@@ -193,17 +200,31 @@
                         </div>
                     </div>
                     <div class="counter flexrow exhaustion">
-                        <h4>{{ localize "DND5E.Exhaustion" }}</h4>
+                        <h4>{{ localize "CARBON.Exhaustion" }}</h4>
                         <div class="counter-value">
                             <input name="data.attributes.exhaustion" type="number" placeholder="0"
                                    value="{{data.attributes.exhaustion}}" />
                         </div>
                     </div>
                     <div class="counter flexrow inspiration">
-                        <h4>{{ localize "DND5E.Inspiration" }}</h4>
+                        <h4>{{ localize "CARBON.Inspiration" }}</h4>
                         <div class="counter-value">
                             <input type="checkbox" name="data.attributes.inspiration" data-dtype="Boolean"
                                    {{checked data.attributes.inspiration}}/>
+                        </div>
+                    </div>
+                    <div class="counter flexrow influence">
+                        <h4>{{ localize "CARBON.InfluenceCorporate" }}</h4>
+                        <div class="counter-value">
+                            <input name="data.influence.corporate" type="number" placeholder="0"
+                                   value="{{data.influence.corporate}}" />
+                        </div>
+                    </div>
+                    <div class="counter flexrow influence">
+                        <h4>{{ localize "CARBON.InfluenceStreet" }}</h4>
+                        <div class="counter-value">
+                            <input name="data.influence.street" type="number" placeholder="0"
+                                   value="{{data.influence.street}}" />
                         </div>
                     </div>
                 </div>
@@ -231,16 +252,10 @@
         {{!-- Biography Tab --}}
         <div class="tab flexrow" data-group="primary" data-tab="biography">
             <div class="characteristics flexcol">
-                <label>{{ localize "DND5E.Appearance" }}</label>
+                <label>{{ localize "CARBON.Appearance" }}</label>
                 <textarea name="data.details.appearance">{{data.details.appearance}}</textarea>
-                <label>{{ localize "DND5E.PersonalityTraits" }}</label>
-                <textarea name="data.details.trait">{{data.details.trait}}</textarea>
-                <label>{{ localize "DND5E.Ideals" }}</label>
-                <textarea name="data.details.ideal">{{data.details.ideal}}</textarea>
-                <label>{{ localize "DND5E.Bonds" }}</label>
-                <textarea name="data.details.bond">{{data.details.bond}}</textarea>
-                <label>{{ localize "DND5E.Flaws" }}</label>
-                <textarea name="data.details.flaw">{{data.details.flaw}}</textarea>
+                <label>{{ localize "CARBON.Vice" }}</label>
+                <textarea name="data.details.vice">{{data.details.vice}}</textarea>
             </div>
             <div class="biography">
                 {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}

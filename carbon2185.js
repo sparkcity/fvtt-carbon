@@ -41,7 +41,7 @@ import * as migrations from "./module/migration.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", function() {
-  console.log(`DnD5e | Initializing the DnD5e Game System\n${DND5E.ASCII}`);
+  console.log(`Welcome, Cyberpunks.`)
 
   // Create a namespace within the game global
   game.carbon2185 = {
@@ -164,7 +164,7 @@ Hooks.once("ready", function() {
   // Perform the migration
   if ( needMigration && game.user.isGM ) {
     if ( currentVersion && (currentVersion < COMPATIBLE_MIGRATION_VERSION) ) {
-      ui.notifications.error(`Your DnD5e system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`, {permanent: true});
+      //ui.notifications.error(`Your DnD5e system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`, {permanent: true});
     }
     migrations.migrateWorld();
   }

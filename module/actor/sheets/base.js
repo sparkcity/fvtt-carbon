@@ -523,7 +523,7 @@ export default class ActorSheet5e extends ActorSheet {
 
     // Create and render the Dialog
     return new Dialog({
-      title: game.i18n.localize('DND5E.PolymorphPromptTitle'),
+      title: game.i18n.localize('CARBON.PolymorphPromptTitle'),
       content: {
         options: game.settings.get('carbon2185', 'polymorphSettings'),
         i18n: DND5E.polymorphSettings,
@@ -533,12 +533,12 @@ export default class ActorSheet5e extends ActorSheet {
       buttons: {
         accept: {
           icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize('DND5E.PolymorphAcceptSettings'),
+          label: game.i18n.localize('CARBON.PolymorphAcceptSettings'),
           callback: html => this.actor.transformInto(sourceActor, rememberOptions(html))
         },
         wildshape: {
           icon: '<i class="fas fa-paw"></i>',
-          label: game.i18n.localize('DND5E.PolymorphWildShape'),
+          label: game.i18n.localize('CARBON.PolymorphWildShape'),
           callback: html => this.actor.transformInto(sourceActor, {
             keepMental: true,
             mergeSaves: true,
@@ -548,7 +548,7 @@ export default class ActorSheet5e extends ActorSheet {
         },
         polymorph: {
           icon: '<i class="fas fa-pastafarianism"></i>',
-          label: game.i18n.localize('DND5E.Polymorph'),
+          label: game.i18n.localize('CARBON.Polymorph'),
           callback: html => this.actor.transformInto(sourceActor, {
             transformTokens: rememberOptions(html).transformTokens
           })
@@ -695,7 +695,7 @@ export default class ActorSheet5e extends ActorSheet {
     const header = event.currentTarget;
     const type = header.dataset.type;
     const itemData = {
-      name: game.i18n.format("DND5E.ItemNew", {type: type.capitalize()}),
+      name: game.i18n.format("CARBON.ItemNew", {type: type.capitalize()}),
       type: type,
       data: duplicate(header.dataset)
     };
@@ -833,7 +833,7 @@ export default class ActorSheet5e extends ActorSheet {
     // Add button to revert polymorph
     if ( !this.actor.isPolymorphed || this.actor.isToken ) return buttons;
     buttons.unshift({
-      label: 'DND5E.PolymorphRestoreTransformation',
+      label: 'CARBON.PolymorphRestoreTransformation',
       class: "restore-transformation",
       icon: "fas fa-backward",
       onclick: ev => this.actor.revertOriginalForm()

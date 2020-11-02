@@ -95,66 +95,66 @@ export default class ActorSheet5eVehicle extends ActorSheet5e {
    */
   _prepareItems(data) {
     const cargoColumns = [{
-      label: game.i18n.localize('DND5E.Quantity'),
+      label: game.i18n.localize('CARBON.Quantity'),
       css: 'item-qty',
       property: 'quantity',
       editable: 'Number'
     }];
 
     const equipmentColumns = [{
-      label: game.i18n.localize('DND5E.Quantity'),
+      label: game.i18n.localize('CARBON.Quantity'),
       css: 'item-qty',
       property: 'data.quantity'
     }, {
-      label: game.i18n.localize('DND5E.AC'),
+      label: game.i18n.localize('CARBON.AC'),
       css: 'item-ac',
       property: 'data.armor.value'
     }, {
-      label: game.i18n.localize('DND5E.HP'),
+      label: game.i18n.localize('CARBON.HP'),
       css: 'item-hp',
       property: 'data.hp.value',
       editable: 'Number'
     }, {
-      label: game.i18n.localize('DND5E.Threshold'),
+      label: game.i18n.localize('CARBON.Threshold'),
       css: 'item-threshold',
       property: 'threshold'
     }];
 
     const features = {
       actions: {
-        label: game.i18n.localize('DND5E.ActionPl'),
+        label: game.i18n.localize('CARBON.ActionPl'),
         items: [],
         crewable: true,
         dataset: {type: 'feat', 'activation.type': 'crew'},
         columns: [{
-          label: game.i18n.localize('DND5E.VehicleCrew'),
+          label: game.i18n.localize('CARBON.VehicleCrew'),
           css: 'item-crew',
           property: 'crew'
         }, {
-          label: game.i18n.localize('DND5E.Cover'),
+          label: game.i18n.localize('CARBON.Cover'),
           css: 'item-cover',
           property: 'cover'
         }]
       },
       equipment: {
-        label: game.i18n.localize('DND5E.ItemTypeEquipment'),
+        label: game.i18n.localize('CARBON.ItemTypeEquipment'),
         items: [],
         crewable: true,
         dataset: {type: 'equipment', 'armor.type': 'vehicle'},
         columns: equipmentColumns
       },
       passive: {
-        label: game.i18n.localize('DND5E.Features'),
+        label: game.i18n.localize('CARBON.Features'),
         items: [],
         dataset: {type: 'feat'}
       },
       reactions: {
-        label: game.i18n.localize('DND5E.ReactionPl'),
+        label: game.i18n.localize('CARBON.ReactionPl'),
         items: [],
         dataset: {type: 'feat', 'activation.type': 'reaction'}
       },
       weapons: {
-        label: game.i18n.localize('DND5E.ItemTypeWeaponPl'),
+        label: game.i18n.localize('CARBON.ItemTypeWeaponPl'),
         items: [],
         crewable: true,
         dataset: {type: 'weapon', 'weapon-type': 'siege'},
@@ -164,7 +164,7 @@ export default class ActorSheet5eVehicle extends ActorSheet5e {
 
     const cargo = {
       crew: {
-        label: game.i18n.localize('DND5E.VehicleCrew'),
+        label: game.i18n.localize('CARBON.VehicleCrew'),
         items: data.data.cargo.crew,
         css: 'cargo-row crew',
         editableName: true,
@@ -172,7 +172,7 @@ export default class ActorSheet5eVehicle extends ActorSheet5e {
         columns: cargoColumns
       },
       passengers: {
-        label: game.i18n.localize('DND5E.VehiclePassengers'),
+        label: game.i18n.localize('CARBON.VehiclePassengers'),
         items: data.data.cargo.passengers,
         css: 'cargo-row passengers',
         editableName: true,
@@ -180,21 +180,21 @@ export default class ActorSheet5eVehicle extends ActorSheet5e {
         columns: cargoColumns
       },
       cargo: {
-        label: game.i18n.localize('DND5E.VehicleCargo'),
+        label: game.i18n.localize('CARBON.VehicleCargo'),
         items: [],
         dataset: {type: 'loot'},
         columns: [{
-          label: game.i18n.localize('DND5E.Quantity'),
+          label: game.i18n.localize('CARBON.Quantity'),
           css: 'item-qty',
           property: 'data.quantity',
           editable: 'Number'
         }, {
-          label: game.i18n.localize('DND5E.Price'),
+          label: game.i18n.localize('CARBON.Price'),
           css: 'item-price',
           property: 'data.price',
           editable: 'Number'
         }, {
-          label: game.i18n.localize('DND5E.Weight'),
+          label: game.i18n.localize('CARBON.Weight'),
           css: 'item-weight',
           property: 'data.weight',
           editable: 'Number'

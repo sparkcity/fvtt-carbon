@@ -58,7 +58,7 @@ export async function d20Roll({parts=[], data={}, event={}, rollMode=null, templ
     // Handle advantage
     if (adv === 1) {
       nd = elvenAccuracy ? 3 : 2;
-      messageData.flavor += ` (${game.i18n.localize("DND5E.Advantage")})`;
+      messageData.flavor += ` (${game.i18n.localize("CARBON.Advantage")})`;
       if ( "flags.carbon2185.roll" in messageData ) messageData["flags.carbon2185.roll"].advantage = true;
       mods += "kh";
     }
@@ -66,7 +66,7 @@ export async function d20Roll({parts=[], data={}, event={}, rollMode=null, templ
     // Handle disadvantage
     else if (adv === -1) {
       nd = 2;
-      messageData.flavor += ` (${game.i18n.localize("DND5E.Disadvantage")})`;
+      messageData.flavor += ` (${game.i18n.localize("CARBON.Disadvantage")})`;
       if ( "flags.carbon2185.roll" in messageData ) messageData["flags.carbon2185.roll"].disadvantage = true;
       mods += "kl";
     }
@@ -115,7 +115,7 @@ export async function d20Roll({parts=[], data={}, event={}, rollMode=null, templ
 
     // If reliable talent was applied, add it to the flavor text
     if (reliableTalent && roll.dice[0].total < 10) {
-      messageData.flavor += ` (${game.i18n.localize("DND5E.FlagsReliableTalent")})`;
+      messageData.flavor += ` (${game.i18n.localize("CARBON.FlagsReliableTalent")})`;
     }
     return roll;
   };
@@ -157,15 +157,15 @@ async function _d20RollDialog({template, title, parts, data, rollMode, dialogOpt
       content: html,
       buttons: {
         advantage: {
-          label: game.i18n.localize("DND5E.Advantage"),
+          label: game.i18n.localize("CARBON.Advantage"),
           callback: html => resolve(roll(parts, 1, html[0].querySelector("form")))
         },
         normal: {
-          label: game.i18n.localize("DND5E.Normal"),
+          label: game.i18n.localize("CARBON.Normal"),
           callback: html => resolve(roll(parts, 0, html[0].querySelector("form")))
         },
         disadvantage: {
-          label: game.i18n.localize("DND5E.Disadvantage"),
+          label: game.i18n.localize("CARBON.Disadvantage"),
           callback: html => resolve(roll(parts, -1, html[0].querySelector("form")))
         }
       },
@@ -233,7 +233,7 @@ export async function damageRoll({parts, actor, data, event={}, rollMode=null, t
       // TODO Backwards compatibility - REMOVE LATER
       if (isNewerVersion(game.data.version, "0.6.9")) roll.alter(mult, add);
       else roll.alter(add, mult);
-      messageData.flavor += ` (${game.i18n.localize("DND5E.Critical")})`;
+      messageData.flavor += ` (${game.i18n.localize("CARBON.Critical")})`;
       if ( "flags.carbon2185.roll" in messageData ) messageData["flags.carbon2185.roll"].critical = true;
     }
 
@@ -285,11 +285,11 @@ async function _damageRollDialog({template, title, parts, data, allowCritical, r
       buttons: {
         critical: {
           condition: allowCritical,
-          label: game.i18n.localize("DND5E.CriticalHit"),
+          label: game.i18n.localize("CARBON.CriticalHit"),
           callback: html => resolve(roll(parts, true, html[0].querySelector("form")))
         },
         normal: {
-          label: game.i18n.localize(allowCritical ? "DND5E.Normal" : "DND5E.Roll"),
+          label: game.i18n.localize(allowCritical ? "CARBON.Normal" : "CARBON.Roll"),
           callback: html => resolve(roll(parts, false, html[0].querySelector("form")))
         },
       },

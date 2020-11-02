@@ -1,12 +1,12 @@
 {
   "name": "carbon2185",
   "title": "(Unofficial) Carbon 2185",
-  "description": "An unofficial system for playing Carbon 2185. Code based entirely on DnD5e by Atropos.",
+  "description": "An unofficial system for playing Carbon 2185 by Dragon Turtle Games with permission from Dragon Turtle Games. Code based entirely on DnD5e by Atropos.",
   "version": 0.01,
   "author": "Parker S.",
   "scripts": [],
-  "esmodules": ["dnd5e.js"],
-  "styles": ["dnd5e.css"],
+  "esmodules": ["carbon2185.js"],
+  "styles": ["carbon2185.css"],
   "packs": [
     {
       "name": "heroes",
@@ -28,7 +28,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
-  "minimumCoreVersion": "0.5.6",
+  "minimumCoreVersion": "0.7.4",
   "compatibleCoreVersion": "0.7.5",
   "url": "",
   "manifest": "",

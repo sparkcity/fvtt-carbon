@@ -113,8 +113,8 @@ export default class ItemSheet5e extends ItemSheet {
         const uses = i.data.data.uses || {};
         if ( uses.per && uses.max ) {
           const label = uses.per === "charges" ?
-            ` (${game.i18n.format("DND5E.AbilityUseChargesLabel", {value: uses.value})})` :
-            ` (${game.i18n.format("DND5E.AbilityUseConsumableLabel", {max: uses.max, per: uses.per})})`;
+            ` (${game.i18n.format("CARBON.AbilityUseChargesLabel", {value: uses.value})})` :
+            ` (${game.i18n.format("CARBON.AbilityUseConsumableLabel", {max: uses.max, per: uses.per})})`;
           obj[i.id] = i.name + label;
         }
         return obj;
@@ -135,10 +135,10 @@ export default class ItemSheet5e extends ItemSheet {
       return CONFIG.DND5E.spellPreparationModes[item.data.preparation];
     }
     else if ( ["weapon", "equipment"].includes(item.type) ) {
-      return game.i18n.localize(item.data.equipped ? "DND5E.Equipped" : "DND5E.Unequipped");
+      return game.i18n.localize(item.data.equipped ? "CARBON.Equipped" : "CARBON.Unequipped");
     }
     else if ( item.type === "tool" ) {
-      return game.i18n.localize(item.data.proficient ? "DND5E.Proficient" : "DND5E.NotProficient");
+      return game.i18n.localize(item.data.proficient ? "CARBON.Proficient" : "CARBON.NotProficient");
     }
   }
 
@@ -163,8 +163,8 @@ export default class ItemSheet5e extends ItemSheet {
       props.push(
         labels.components,
         labels.materials,
-        item.data.components.concentration ? game.i18n.localize("DND5E.Concentration") : null,
-        item.data.components.ritual ? game.i18n.localize("DND5E.Ritual") : null
+        item.data.components.concentration ? game.i18n.localize("CARBON.Concentration") : null,
+        item.data.components.ritual ? game.i18n.localize("CARBON.Ritual") : null
       )
     }
 

@@ -405,7 +405,7 @@ export default class Actor5e extends Actor {
         if ( save.scaling === "spell" ) save.dc = data.attributes.spelldc;
         else if ( save.scaling !== "flat" ) save.dc = data.abilities[save.scaling]?.dc ?? 10;
         const ability = CONFIG.DND5E.abilities[save.ability];
-        i.labels.save = game.i18n.format("DND5E.SaveDC", {dc: save.dc || "", ability});
+        i.labels.save = game.i18n.format("CARBON.SaveDC", {dc: save.dc || "", ability});
       }
     }
   }
@@ -692,7 +692,7 @@ export default class Actor5e extends Actor {
     if ( usesSlots && consumeSlot && (lvl > 0) ) {
       const slots = parseInt(this.data.data.spells[consumeSlot]?.value);
       if ( slots === 0 || Number.isNaN(slots) ) {
-        return ui.notifications.error(game.i18n.localize("DND5E.SpellCastNoSlots"));
+        return ui.notifications.error(game.i18n.localize("CARBON.SpellCastNoSlots"));
       }
       await this.update({
         [`data.spells.${consumeSlot}.value`]: Math.max(slots - 1, 0)
@@ -702,7 +702,7 @@ export default class Actor5e extends Actor {
     // Update Item data
     if ( limitedUses && consumeUse ) {
       const uses = parseInt(itemData.uses.value || 0);
-      if ( uses <= 0 ) ui.notifications.warn(game.i18n.format("DND5E.ItemNoUses", {name: item.name}));
+      if ( uses <= 0 ) ui.notifications.warn(game.i18n.format("CARBON.ItemNoUses", {name: item.name}));
       await item.update({"data.uses.value": Math.max(parseInt(item.data.data.uses.value || 0) - 1, 0)})
     }
 
@@ -758,7 +758,7 @@ export default class Actor5e extends Actor {
     const rollData = mergeObject(options, {
       parts: parts,
       data: data,
-      title: game.i18n.format("DND5E.SkillPromptTitle", {skill: CONFIG.DND5E.skills[skillId]}),
+      title: game.i18n.format("CARBON.SkillPromptTitle", {skill: CONFIG.DND5E.skills[skillId]}),
       halflingLucky: this.getFlag("carbon2185", "halflingLucky"),
       reliableTalent: reliableTalent,
       messageData: {"flags.carbon2185.roll": {type: "skill", skillId }}
@@ -778,15 +778,15 @@ export default class Actor5e extends Actor {
   rollAbility(abilityId, options={}) {
     const label = CONFIG.DND5E.abilities[abilityId];
     new Dialog({
-      title: game.i18n.format("DND5E.AbilityPromptTitle", {ability: label}),
-      content: `<p>${game.i18n.format("DND5E.AbilityPromptText", {ability: label})}</p>`,
+      title: game.i18n.format("CARBON.AbilityPromptTitle", {ability: label}),
+      content: `<p>${game.i18n.format("CARBON.AbilityPromptText", {ability: label})}</p>`,
       buttons: {
         test: {
-          label: game.i18n.localize("DND5E.ActionAbil"),
+          label: game.i18n.localize("CARBON.ActionAbil"),
           callback: () => this.rollAbilityTest(abilityId, options)
         },
         save: {
-          label: game.i18n.localize("DND5E.ActionSave"),
+          label: game.i18n.localize("CARBON.ActionSave"),
           callback: () => this.rollAbilitySave(abilityId, options)
         }
       }
@@ -837,7 +837,7 @@ export default class Actor5e extends Actor {
     const rollData = mergeObject(options, {
       parts: parts,
       data: data,
-      title: game.i18n.format("DND5E.AbilityPromptTitle", {ability: label}),
+      title: game.i18n.format("CARBON.AbilityPromptTitle", {ability: label}),
       halflingLucky: feats.halflingLucky,
       messageData: {"flags.carbon2185.roll": {type: "ability", abilityId }}
     });
@@ -884,7 +884,7 @@ export default class Actor5e extends Actor {
     const rollData = mergeObject(options, {
       parts: parts,
       data: data,
-      title: game.i18n.format("DND5E.SavePromptTitle", {ability: label}),
+      title: game.i18n.format("CARBON.SavePromptTitle", {ability: label}),
       halflingLucky: this.getFlag("carbon2185", "halflingLucky"),
       messageData: {"flags.carbon2185.roll": {type: "save", abilityId }}
     });
@@ -904,7 +904,7 @@ export default class Actor5e extends Actor {
     // Display a warning if we are not at zero HP or if we already have reached 3
     const death = this.data.data.attributes.death;
     if ( (this.data.data.attributes.hp.value > 0) || (death.failure >= 3) || (death.success >= 3)) {
-      ui.notifications.warn(game.i18n.localize("DND5E.DeathSaveUnnecessary"));
+      ui.notifications.warn(game.i18n.localize("CARBON.DeathSaveUnnecessary"));
       return null;
     }
 
@@ -924,7 +924,7 @@ export default class Actor5e extends Actor {
     const rollData = mergeObject(options, {
       parts: parts,
       data: data,
-      title: game.i18n.localize("DND5E.DeathSavingThrow"),
+      title: game.i18n.localize("CARBON.DeathSavingThrow"),
       speaker: speaker,
       halflingLucky: this.getFlag("carbon2185", "halflingLucky"),
       targetValue: 10,
@@ -949,7 +949,7 @@ export default class Actor5e extends Actor {
           "data.attributes.death.failure": 0,
           "data.attributes.hp.value": 1
         });
-        await ChatMessage.create({content: game.i18n.format("DND5E.DeathSaveCriticalSuccess", {name: this.name}), speaker});
+        await ChatMessage.create({content: game.i18n.format("CARBON.DeathSaveCriticalSuccess", {name: this.name}), speaker});
       }
 
       // 3 Successes = survive and reset checks
@@ -958,7 +958,7 @@ export default class Actor5e extends Actor {
           "data.attributes.death.success": 0,
           "data.attributes.death.failure": 0
         });
-        await ChatMessage.create({content: game.i18n.format("DND5E.DeathSaveSuccess", {name: this.name}), speaker});
+        await ChatMessage.create({content: game.i18n.format("CARBON.DeathSaveSuccess", {name: this.name}), speaker});
       }
 
       // Increment successes
@@ -970,7 +970,7 @@ export default class Actor5e extends Actor {
       let failures = (death.failure || 0) + (d20 === 1 ? 2 : 1);
       await this.update({"data.attributes.death.failure": Math.clamped(failures, 0, 3)});
       if ( failures >= 3 ) {  // 3 Failures = death
-        await ChatMessage.create({content: game.i18n.format("DND5E.DeathSaveFailure", {name: this.name}), speaker});
+        await ChatMessage.create({content: game.i18n.format("CARBON.DeathSaveFailure", {name: this.name}), speaker});
       }
     }
 
@@ -1007,13 +1007,13 @@ export default class Actor5e extends Actor {
 
     // If no class is available, display an error notification
     if ( !cls ) {
-      ui.notifications.error(game.i18n.format("DND5E.HitDiceWarn", {name: this.name, formula: denomination}));
+      ui.notifications.error(game.i18n.format("CARBON.HitDiceWarn", {name: this.name, formula: denomination}));
       return null;
     }
 
     // Prepare roll data
     const parts = [`1${denomination}`, "@abilities.con.mod"];
-    const title = game.i18n.localize("DND5E.HitDiceRoll");
+    const title = game.i18n.localize("CARBON.HitDiceRoll");
     const rollData = duplicate(this.data.data);
 
     // Call the roll helper utility
@@ -1108,14 +1108,14 @@ export default class Actor5e extends Actor {
       // Summarize the rest duration
       let restFlavor;
       switch (game.settings.get("carbon2185", "restVariant")) {
-        case 'normal': restFlavor = game.i18n.localize("DND5E.ShortRestNormal"); break;
-        case 'gritty': restFlavor = game.i18n.localize(newDay ? "DND5E.ShortRestOvernight" : "DND5E.ShortRestGritty"); break;
-        case 'epic':  restFlavor = game.i18n.localize("DND5E.ShortRestEpic"); break;
+        case 'normal': restFlavor = game.i18n.localize("CARBON.ShortRestNormal"); break;
+        case 'gritty': restFlavor = game.i18n.localize(newDay ? "CARBON.ShortRestOvernight" : "CARBON.ShortRestGritty"); break;
+        case 'epic':  restFlavor = game.i18n.localize("CARBON.ShortRestEpic"); break;
       }
 
       // Summarize the health effects
-      let srMessage = "DND5E.ShortRestResultShort";
-      if ((dhd !== 0) && (dhp !== 0)) srMessage = "DND5E.ShortRestResult";
+      let srMessage = "CARBON.ShortRestResultShort";
+      if ((dhd !== 0) && (dhp !== 0)) srMessage = "CARBON.ShortRestResult";
 
       // Create a chat message
       ChatMessage.create({
@@ -1221,17 +1221,17 @@ export default class Actor5e extends Actor {
     // Display a Chat Message summarizing the rest effects
     let restFlavor;
     switch (game.settings.get("carbon2185", "restVariant")) {
-      case 'normal': restFlavor = game.i18n.localize(newDay ? "DND5E.LongRestOvernight" : "DND5E.LongRestNormal"); break;
-      case 'gritty': restFlavor = game.i18n.localize("DND5E.LongRestGritty"); break;
-      case 'epic':  restFlavor = game.i18n.localize("DND5E.LongRestEpic"); break;
+      case 'normal': restFlavor = game.i18n.localize(newDay ? "CARBON.LongRestOvernight" : "CARBON.LongRestNormal"); break;
+      case 'gritty': restFlavor = game.i18n.localize("CARBON.LongRestGritty"); break;
+      case 'epic':  restFlavor = game.i18n.localize("CARBON.LongRestEpic"); break;
     }
 
     // Determine the chat message to display
     if ( chat ) {
-      let lrMessage = "DND5E.LongRestResultShort";
-      if((dhp !== 0) && (dhd !== 0)) lrMessage = "DND5E.LongRestResult";
-      else if ((dhp !== 0) && (dhd === 0)) lrMessage = "DND5E.LongRestResultHitPoints";
-      else if ((dhp === 0) && (dhd !== 0)) lrMessage = "DND5E.LongRestResultHitDice";
+      let lrMessage = "CARBON.LongRestResultShort";
+      if((dhp !== 0) && (dhd !== 0)) lrMessage = "CARBON.LongRestResult";
+      else if ((dhp !== 0) && (dhd === 0)) lrMessage = "CARBON.LongRestResultHitPoints";
+      else if ((dhp === 0) && (dhd !== 0)) lrMessage = "CARBON.LongRestResultHitDice";
       ChatMessage.create({
         user: game.user._id,
         speaker: {actor: this, alias: this.name},
@@ -1295,7 +1295,7 @@ export default class Actor5e extends Actor {
     // Ensure the player is allowed to polymorph
     const allowed = game.settings.get("carbon2185", "allowPolymorphing");
     if ( !allowed && !game.user.isGM ) {
-      return ui.notifications.warn(game.i18n.localize("DND5E.PolymorphWarn"));
+      return ui.notifications.warn(game.i18n.localize("CARBON.PolymorphWarn"));
     }
 
     // Get the original Actor data and the new source data
@@ -1375,7 +1375,7 @@ export default class Actor5e extends Actor {
     if (!keepClass && d.data.details.cr) {
       d.items.push({
         type: 'class',
-        name: game.i18n.localize('DND5E.PolymorphTmpClass'),
+        name: game.i18n.localize('CARBON.PolymorphTmpClass'),
         data: { levels: d.data.details.cr }
       });
     }
@@ -1429,7 +1429,7 @@ export default class Actor5e extends Actor {
   async revertOriginalForm() {
     if ( !this.isPolymorphed ) return;
     if ( !this.owner ) {
-      return ui.notifications.warn(game.i18n.localize("DND5E.PolymorphRevertWarn"));
+      return ui.notifications.warn(game.i18n.localize("CARBON.PolymorphRevertWarn"));
     }
 
     // If we are reverting an unlinked token, simply replace it with the base actor prototype
@@ -1470,7 +1470,7 @@ export default class Actor5e extends Actor {
    */
   static addDirectoryContextOptions(html, entryOptions) {
     entryOptions.push({
-      name: 'DND5E.PolymorphRestoreTransformation',
+      name: 'CARBON.PolymorphRestoreTransformation',
       icon: '<i class="fas fa-backward"></i>',
       callback: li => {
         const actor = game.actors.get(li.data('entityId'));

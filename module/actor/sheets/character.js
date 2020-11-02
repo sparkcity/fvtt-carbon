@@ -37,7 +37,7 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
     sheetData["resources"] = ["primary", "secondary", "tertiary"].reduce((arr, r) => {
       const res = sheetData.data.resources[r] || {};
       res.name = r;
-      res.placeholder = game.i18n.localize("DND5E.Resource"+r.titleCase());
+      res.placeholder = game.i18n.localize("CARBON.Resource"+r.titleCase());
       if (res && res.value === 0) delete res.value;
       if (res && res.max === 0) delete res.max;
       return arr.concat([res]);
@@ -61,12 +61,12 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
 
     // Categorize items as inventory, spellbook, features, and classes
     const inventory = {
-      weapon: { label: "DND5E.ItemTypeWeaponPl", items: [], dataset: {type: "weapon"} },
-      equipment: { label: "DND5E.ItemTypeEquipmentPl", items: [], dataset: {type: "equipment"} },
-      consumable: { label: "DND5E.ItemTypeConsumablePl", items: [], dataset: {type: "consumable"} },
-      tool: { label: "DND5E.ItemTypeToolPl", items: [], dataset: {type: "tool"} },
-      backpack: { label: "DND5E.ItemTypeContainerPl", items: [], dataset: {type: "backpack"} },
-      loot: { label: "DND5E.ItemTypeLootPl", items: [], dataset: {type: "loot"} }
+      weapon: { label: "CARBON.ItemTypeWeaponPl", items: [], dataset: {type: "weapon"} },
+      equipment: { label: "CARBON.ItemTypeEquipmentPl", items: [], dataset: {type: "equipment"} },
+      consumable: { label: "CARBON.ItemTypeConsumablePl", items: [], dataset: {type: "consumable"} },
+      tool: { label: "CARBON.ItemTypeToolPl", items: [], dataset: {type: "tool"} },
+      backpack: { label: "CARBON.ItemTypeContainerPl", items: [], dataset: {type: "backpack"} },
+      loot: { label: "CARBON.ItemTypeLootPl", items: [], dataset: {type: "loot"} }
     };
 
     // Partition items by category
@@ -114,9 +114,9 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
 
     // Organize Features
     const features = {
-      classes: { label: "DND5E.ItemTypeClassPl", items: [], hasActions: false, dataset: {type: "class"}, isClass: true },
-      active: { label: "DND5E.FeatureActive", items: [], hasActions: true, dataset: {type: "feat", "activation.type": "action"} },
-      passive: { label: "DND5E.FeaturePassive", items: [], hasActions: false, dataset: {type: "feat"} }
+      classes: { label: "CARBON.ItemTypeClassPl", items: [], hasActions: false, dataset: {type: "class"}, isClass: true },
+      active: { label: "CARBON.FeatureActive", items: [], hasActions: true, dataset: {type: "feat", "activation.type": "action"} },
+      passive: { label: "CARBON.FeaturePassive", items: [], hasActions: false, dataset: {type: "feat"} }
     };
     for ( let f of feats ) {
       if ( f.data.activation.type ) features.active.items.push(f);
@@ -147,12 +147,12 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
       if ( isAlways ) item.toggleClass = "fixed";
       if ( isAlways ) item.toggleTitle = CONFIG.DND5E.spellPreparationModes.always;
       else if ( isPrepared ) item.toggleTitle = CONFIG.DND5E.spellPreparationModes.prepared;
-      else item.toggleTitle = game.i18n.localize("DND5E.SpellUnprepared");
+      else item.toggleTitle = game.i18n.localize("CARBON.SpellUnprepared");
     }
     else {
       const isActive = getProperty(item.data, "equipped");
       item.toggleClass = isActive ? "active" : "";
-      item.toggleTitle = game.i18n.localize(isActive ? "DND5E.Equipped" : "DND5E.Unequipped");
+      item.toggleTitle = game.i18n.localize(isActive ? "CARBON.Equipped" : "CARBON.Unequipped");
     }
   }
 
@@ -246,8 +246,8 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
   async _onConvertCurrency(event) {
     event.preventDefault();
     return Dialog.confirm({
-      title: `${game.i18n.localize("DND5E.CurrencyConvert")}`,
-      content: `<p>${game.i18n.localize("DND5E.CurrencyConvertHint")}</p>`,
+      title: `${game.i18n.localize("CARBON.CurrencyConvert")}`,
+      content: `<p>${game.i18n.localize("CARBON.CurrencyConvertHint")}</p>`,
       yes: () => this.actor.convertCurrency()
     });
   }

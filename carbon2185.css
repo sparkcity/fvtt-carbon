@@ -19,6 +19,24 @@
   font-size: 20px;
   font-weight: 700;
 }
+
+@font-face {
+  font-family: 'Atiba';
+  font-style: normal;
+  src: url('./fonts/Atiba.ttf');
+}
+
+@font-face {
+  font-family: 'Droid';
+  font-style: normal;
+  src: url('./fonts/DROID___.ttf');
+}
+
+@font-face {
+  font-family: 'Hyperion';
+  font-style: normal;
+  src: url('./fonts/hyperion.ttf');
+}
 /* ----------------------------------------- */
 /*  Sheet Styles                             */
 /* ----------------------------------------- */
@@ -77,10 +95,31 @@
   /* Tags */
 }
 .carbon2185 .window-content {
-  background: url("ui/parchment.jpg") repeat;
+  background: url("./assets/hex.png") repeat;
   font-size: 13px;
   color: #191813;
 }
+
+
+.window-app .window-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  background: url("./assets/hex.png") repeat;
+  padding: 8px;
+  color: #191813;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.chat-message {
+  background: url("./assets/hex.png") repeat;
+  padding: 5px;
+  color: #191813;
+  font-size: 14px;
+}
+
 .carbon2185 input[type="text"],
 .carbon2185 input[type="number"],
 .carbon2185 select {
@@ -218,10 +257,19 @@
   /*  Trait Lists                              */
   /* ----------------------------------------- */
 }
+.window-app .window-header {
+  flex: 0 0 30px;
+  overflow: hidden;
+  padding: 0 8px;
+  line-height: 30px;
+  background-color: #2A455E;
+  border-bottom: 1px solid #000;
+}
+
 .carbon2185.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
-  background: url("ui/parchment.jpg") repeat;
+  background: url("./assets/hex.png") repeat;
   font-size: 13px;
   color: #191813;
 }
@@ -337,6 +385,8 @@
   line-height: 32px;
   margin: 0 24px;
   border-bottom: 3px solid #b5b3a4;
+  font-family: 'Atiba';
+  font-size: 15px;
 }
 .carbon2185.sheet .sheet-navigation .item.active {
   border-bottom: 3px solid #44191A;
@@ -496,10 +546,9 @@
   height: 18px;
   line-height: 16px;
   margin: 4px 8px 2px;
-  font-family: "Modesto Condensed", "Palatino Linotype", serif;
-  font-size: 20px;
+  font-family: "Atiba";
+  font-size: 13px;
   font-weight: 700;
-  font-size: 18px;
   color: #4b4a44;
   border-bottom: 1px solid #c9c7b8;
 }
@@ -609,13 +658,15 @@
   cursor: default;
 }
 .carbon2185.sheet.actor ul.skills-list {
-  flex: 0 0 180px;
+  flex: 0 0 190px;
   height: 440px;
   list-style: none;
   margin: 0 5px 0;
   padding: 3px 0 2px;
   border: 2px groove #eeede0;
   border-radius: 3px;
+  overflow-x: hidden; 
+  overflow-y: auto; 
 }
 .carbon2185.sheet.actor ul.skills-list li.skill {
   height: 24px;
@@ -1329,7 +1380,7 @@
 /*  Basic Structure                          */
 /* ----------------------------------------- */
 .carbon2185.sheet.actor.character {
-  min-width: 720px;
+  min-width: 786px;
   min-height: 680px;
   /* ----------------------------------------- */
   /*  Sheet Header                             */
@@ -1419,6 +1470,8 @@
 }
 .carbon2185.sheet.actor.character ul.skills-list {
   flex: 0 0 212px;
+  overflow-x: hidden; 
+  overflow-y: auto; 
 }
 .carbon2185.sheet.actor.character ul.skills-list li.skill {
   padding: 3px;

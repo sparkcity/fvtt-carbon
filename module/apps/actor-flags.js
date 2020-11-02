@@ -21,7 +21,7 @@ export default class ActorSheetFlags extends BaseEntitySheet {
    * @type {String}
    */
   get title() {
-    return `${game.i18n.localize('DND5E.FlagsTitle')}: ${this.object.name}`;
+    return `${game.i18n.localize('CARBON.FlagsTitle')}: ${this.object.name}`;
   }
 
   /* -------------------------------------------- */
@@ -68,18 +68,18 @@ export default class ActorSheetFlags extends BaseEntitySheet {
    */
   _getBonuses() {
     const bonuses = [
-      {name: "data.bonuses.mwak.attack", label: "DND5E.BonusMWAttack"},
-      {name: "data.bonuses.mwak.damage", label: "DND5E.BonusMWDamage"},
-      {name: "data.bonuses.rwak.attack", label: "DND5E.BonusRWAttack"},
-      {name: "data.bonuses.rwak.damage", label: "DND5E.BonusRWDamage"},
-      {name: "data.bonuses.msak.attack", label: "DND5E.BonusMSAttack"},
-      {name: "data.bonuses.msak.damage", label: "DND5E.BonusMSDamage"},
-      {name: "data.bonuses.rsak.attack", label: "DND5E.BonusRSAttack"},
-      {name: "data.bonuses.rsak.damage", label: "DND5E.BonusRSDamage"},
-      {name: "data.bonuses.abilities.check", label: "DND5E.BonusAbilityCheck"},
-      {name: "data.bonuses.abilities.save", label: "DND5E.BonusAbilitySave"},
-      {name: "data.bonuses.abilities.skill", label: "DND5E.BonusAbilitySkill"},
-      {name: "data.bonuses.spell.dc", label: "DND5E.BonusSpellDC"}
+      {name: "data.bonuses.mwak.attack", label: "CARBON.BonusMWAttack"},
+      {name: "data.bonuses.mwak.damage", label: "CARBON.BonusMWDamage"},
+      {name: "data.bonuses.rwak.attack", label: "CARBON.BonusRWAttack"},
+      {name: "data.bonuses.rwak.damage", label: "CARBON.BonusRWDamage"},
+      {name: "data.bonuses.msak.attack", label: "CARBON.BonusMSAttack"},
+      {name: "data.bonuses.msak.damage", label: "CARBON.BonusMSDamage"},
+      {name: "data.bonuses.rsak.attack", label: "CARBON.BonusRSAttack"},
+      {name: "data.bonuses.rsak.damage", label: "CARBON.BonusRSDamage"},
+      {name: "data.bonuses.abilities.check", label: "CARBON.BonusAbilityCheck"},
+      {name: "data.bonuses.abilities.save", label: "CARBON.BonusAbilitySave"},
+      {name: "data.bonuses.abilities.skill", label: "CARBON.BonusAbilitySkill"},
+      {name: "data.bonuses.spell.dc", label: "CARBON.BonusSpellDC"}
     ];
     for ( let b of bonuses ) {
       b.value = getProperty(this.object.data, b.name) || "";
